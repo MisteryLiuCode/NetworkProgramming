@@ -4,8 +4,10 @@ import com.liu.utils.StreamUtils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -32,7 +34,14 @@ public class UploadServer {
         String filePath = "/Users/liushuaibiao/Library/Mobile Documents/com~apple~CloudDocs/个人日常/2022年05月27日_网络编程/NetworkProgramming/03FileUpload/src/main/java/com/liu/purpose/pur.png";
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(filePath));
         bufferedOutputStream.write(bytes);
-
+//        向客户端回复"收到图片"
+//        通过socket获取输出流（字符）
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+        bufferedWriter.write("收到图片");
+//        将数据内容刷新到数据通过
+        bufferedWriter.flush();
+//        设置写入结束
+        socket.shutdownOutput();
 //        关闭资源
         bufferedOutputStream.close();
         bis.close();

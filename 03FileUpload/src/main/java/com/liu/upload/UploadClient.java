@@ -6,6 +6,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -19,7 +20,7 @@ import java.net.UnknownHostException;
 
 
 public class UploadClient {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 //        创建连接，客户端连接对应的ip和端口
         Socket socket = new Socket(InetAddress.getLocalHost(), 8888);
 //        创建读取磁盘文件的输入流,读取文件
@@ -33,9 +34,13 @@ public class UploadClient {
 //        将文件写入到输出流
         bos.write(bytes);
         socket.shutdownOutput();
+//        接收从服务端回复的消息
+        InputStream inputStream = socket.getInputStream();
+        String s = StreamUtils.streamToString(inputStream);
+        System.out.println(s);
 //        关闭流，后打开的先关闭
+        inputStream.close();
         bos.close();
-        bufferedInputStream.close();
         socket.close();
     }
 }

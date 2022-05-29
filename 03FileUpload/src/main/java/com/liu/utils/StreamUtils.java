@@ -1,8 +1,10 @@
 package com.liu.utils;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * @program: NetworkProgramming
@@ -36,4 +38,27 @@ public class StreamUtils {
          bos.close();
          return array;
     }
+    /**
+     * 客户端接收到服务端发送的消息，是InputStream，直接对他进行解析，转化为String
+     */
+    public static String streamToString(InputStream is) throws Exception{
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder stringBuilder = new StringBuilder();
+        String line;
+        while ((line = bufferedReader.readLine())!=null){
+            stringBuilder.append(line+"\r\n");
+        }
+        return stringBuilder.toString();
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
