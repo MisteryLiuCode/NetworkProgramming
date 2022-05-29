@@ -24,7 +24,7 @@ public class UploadClient {
 //        创建连接，客户端连接对应的ip和端口
         Socket socket = new Socket(InetAddress.getLocalHost(), 8888);
 //        创建读取磁盘文件的输入流,读取文件
-        String filePath="/Users/liushuaibiao/Library/Mobile Documents/com~apple~CloudDocs/个人日常/2022年05月27日_网络编程/NetworkProgramming/03FileUpload/src/main/java/com/liu/sourceFile/source.png";
+        String filePath="/Users/liushuaibiao/Desktop/爱，死亡与机器人.Love.Death.and.Robots.S01E14.中英字幕.WEB.1080P-人人影视.mp4";
 //        这里使用输入流进行读取文件，（Me)输入流是读取文件，输出流是写入文件，跟网路有点类似，输出流是往外发送文件，输出流是接收文件
         BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(filePath));
 //        将流转化为字节数组

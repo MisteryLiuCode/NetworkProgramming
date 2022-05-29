@@ -17,8 +17,6 @@ import java.net.Socket;
  * @author: 刘帅彪
  * @create: 2022-05-29 10:25
  **/
-
-
 public class UploadServer {
     public static void main(String[] args) throws IOException {
 //        服务端监听8888端口
@@ -31,7 +29,7 @@ public class UploadServer {
 //        转化为字节数组
         byte[] bytes = StreamUtils.streamToBytes(bis);
 //        将字节流写入到一个文件
-        String filePath = "/Users/liushuaibiao/Library/Mobile Documents/com~apple~CloudDocs/个人日常/2022年05月27日_网络编程/NetworkProgramming/03FileUpload/src/main/java/com/liu/purpose/pur.png";
+        String filePath = "/Users/liushuaibiao/Library/Mobile Documents/com~apple~CloudDocs/个人日常/2022年05月27日_网络编程/NetworkProgramming/03FileUpload/src/main/java/com/liu/purpose/pur.mp4";
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(filePath));
         bufferedOutputStream.write(bytes);
 //        向客户端回复"收到图片"
