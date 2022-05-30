@@ -8,8 +8,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="02TcpHost" />
         <module name="03FileUpload" />
+        <module name="04UdpDemo" />
         <module name="01HostIpApi" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="UdpDemo" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
