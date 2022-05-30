@@ -3,6 +3,7 @@ package com.liu.udp;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.SocketException;
 
 /**
@@ -34,5 +35,12 @@ public class UDPReceiverA {
         byte[] dataByte = datagramPacket.getData();
         String s = new String(dataByte, 0, length);
         System.out.println(s);
+
+//        接收方回复信息
+        //        将要发送的数据，封装到DatagramPacket对象里
+        byte[] bytes = "好的，明天见".getBytes();
+        DatagramPacket bogon = new DatagramPacket(bytes, bytes.length, InetAddress.getByName("bogon"), 9998);
+        socket.send(bogon);
+        socket.close();
     }
 }

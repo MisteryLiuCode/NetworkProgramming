@@ -23,14 +23,23 @@ public class UDPSenderB {
         byte[] bytes = "hello,明天吃火锅".getBytes();
         DatagramPacket bogon = new DatagramPacket(bytes, bytes.length, InetAddress.getByName("bogon"), 9999);
         datagramSocket.send(bogon);
+//        接收数据
+        //    创建一个datagramPacket对象，准备接收数据
+//    udp一个数据包最大64k
+        byte[] data = new byte[1024];
+        DatagramPacket datagramPacket = new DatagramPacket(data, data.length);
+//    调用接收方法，通过网络传输DatagramPacket对象
+//    如果没有数据包发送数据，那么就会一直阻塞等待
+        System.out.println("接收端B 等待接收数据");
+        datagramSocket.receive(datagramPacket);
+//       接收到之后，对packet进行拆包，去除数据，并且展示
+//        获取数据长度
+        int length = datagramPacket.getLength();
+//        获取byte数组数据
+        byte[] dataByte = datagramPacket.getData();
+        String s = new String(dataByte, 0, length);
+        System.out.println(s);
+
         datagramSocket.close();
     }
-
-
-
-
-
-
-
-
 }
