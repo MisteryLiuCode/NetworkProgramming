@@ -13,6 +13,7 @@
         <module>02TcpHost</module>
         <module>03FileUpload</module>
         <module>04UdpDemo</module>
+        <module>05ClientDowloadFile</module>
     </modules>
 
     <properties>

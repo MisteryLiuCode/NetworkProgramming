@@ -19,9 +19,7 @@ import java.net.Socket;
 
 
 public class Client {
-
     public static void main(String[] args) {
-
         Socket socket = null;
         OutputStream os = null;
         InputStream is = null;
@@ -32,27 +30,20 @@ public class Client {
         try {
             InetAddress inetAddress = InetAddress.getByName("localhost");
             int port = 9999;
-
             socket = new Socket(inetAddress, port);
-
             // 发送数据
             os = socket.getOutputStream();
-
             osw = new OutputStreamWriter(os);
             bufferedWriter = new BufferedWriter(osw);
             bufferedWriter.write("hello,server 字符流");
             bufferedWriter.newLine(); // 换行符
             bufferedWriter.flush(); // 刷新
-
             socket.shutdownOutput();
-
             is = socket.getInputStream();
             isr = new InputStreamReader(is);
             br = new BufferedReader(isr);
             String readLine = br.readLine();
-
             System.out.println(readLine);
-
         } catch (IOException e) {
             e.printStackTrace();
         }finally{

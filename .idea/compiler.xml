@@ -10,6 +10,7 @@
         <module name="03FileUpload" />
         <module name="04UdpDemo" />
         <module name="01HostIpApi" />
+        <module name="05ClientDowloadFile" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

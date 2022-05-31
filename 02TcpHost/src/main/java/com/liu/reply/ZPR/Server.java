@@ -26,24 +26,18 @@ public class Server {
         OutputStream os = null;
         InputStreamReader isr = null;
         BufferedReader br = null;
-
         OutputStreamWriter osw = null;
         BufferedWriter bw = null;
-
         try {
             int port = 9999;
             serverSocket = new ServerSocket(port);
             socket = serverSocket.accept();
-
             is = socket.getInputStream();
-
             // 使用字符流读取
             isr = new InputStreamReader(is);
             br = new BufferedReader(isr);
-
             String readLine = br.readLine(); // 读取一行数据
             System.out.println(readLine);
-
             // 返回数据给客户端
             os = socket.getOutputStream();
             osw = new OutputStreamWriter(os);
